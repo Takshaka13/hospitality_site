@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Review Management - Boost Your Bookings</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        .header {
+            background: #fbbf24;
+            padding: 40px 30px;
+            text-align: center;
+        }
+        
+        .big-stat {
+            font-size: 5rem;
+            font-weight: 900;
+            color: #1f2937;
+            margin-bottom: 10px;
+        }
+        
+        .review-box {
+            background: white;
+            padding: 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .stars {
+            color: #fbbf24;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+        
+        .warning {
+            background: #fee2e2;
+            color: #dc2626;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+            font-weight: bold;
+        }
+        
+        .big-red {
+            font-size: 3rem;
+            color: #dc2626;
+            font-weight: 900;
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .problem-list {
+            background: #fbbf24;
+            padding: 40px;
+        }
+        
+        .problem-item {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .icon {
+            font-size: 2rem;
+        }
+        
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 40px;
+            background: #f3f4f6;
+        }
+        
+        .before, .after {
+            padding: 20px;
+            border-radius: 10px;
+        }
+        
+        .before {
+            background: #fee2e2;
+        }
+        
+        .after {
+            background: #d4edda;
+        }
+        
+        .before h3 {
+            color: #dc2626;
+            margin-bottom: 15px;
+        }
+        
+        .after h3 {
+            color: #16a34a;
+            margin-bottom: 15px;
+        }
+        
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        li {
+            padding: 5px 0;
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 50px;
+            text-align: center;
+            color: white;
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .price {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #fbbf24;
+            margin: 20px 0;
+        }
+        
+        .free-trial {
+            background: #fbbf24;
+            color: #1f2937;
+            padding: 20px 40px;
+            font-size: 1.5rem;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            display: inline-block;
+            text-decoration: none;
+            margin-top: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .free-trial:hover {
+            transform: scale(1.05);
+        }
+        
+        .contact-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: #16a34a;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 50px;
+            font-weight: bold;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @media (max-width: 600px) {
+            .big-stat { font-size: 3rem; }
+            .big-red { font-size: 2rem; }
+            .comparison { grid-template-columns: 1fr; }
+            .cta h2 { font-size: 1.8rem; }
+            .price { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="big-stat">87%</div>
+            <h1>of travelers read reviews before booking.<br>If they see THIS about your hotel:</h1>
+        </div>
+        
+        <div class="review-box">
+            <div class="stars">★★★☆☆ Agoda</div>
+            <p style="color: #6b7280; font-style: italic;">"Room was OK but shower was broken. Nobody seemed to care when I told reception..."</p>
+            <div class="warning">⚠️ No response from hotel • 347 people read this</div>
+        </div>
+        
+        <div class="big-red">65% WON'T BOOK</div>
+        <p style="text-align: center; color: #6b7280; padding: 0 20px;">when hotels don't respond to negative reviews (TripAdvisor Study)</p>
+        
+        <div class="problem-list">
+            <h2 style="text-align: center; margin-bottom: 30px; color: #1f2937;">Why This Happens:</h2>
+            
+            <div class="problem-item">
+                <span class="icon">😵</span>
+                <div>
+                    <strong>Check 7 platforms:</strong><br>
+                    Agoda, Booking, Trip.com, Google...
+                </div>
+            </div>
+            
+            <div class="problem-item">
+                <span class="icon">⏰</span>
+                <div>
+                    <strong>Takes 2+ hours daily</strong><br>
+                    just to read everything
+                </div>
+            </div>
+            
+            <div class="problem-item">
+                <span class="icon">😰</span>
+                <div>
+                    <strong>Miss reviews, respond late</strong><br>
+                    or give generic answers
+                </div>
+            </div>
+            
+            <div class="problem-item">
+                <span class="icon">📉</span>
+                <div>
+                    <strong>Lower ratings + Lost bookings =</strong><br>
+                    <span style="color: #dc2626; font-size: 1.2rem;">฿300,000+ lost yearly</span>
+                </div>
+            </div>
+        </div>
+        
+        <div style="padding: 40px; text-align: center; background: white;">
+            <h2 style="font-size: 2rem; margin-bottom: 10px;">All Reviews. One Dashboard. Real Impact</h2>
+            <p style="color: #6b7280;">AI-powered, Human-controlled</p>
+        </div>
+        
+        <div class="comparison">
+            <div class="before">
+                <h3>❌ BEFORE</h3>
+                <ul>
+                    <li>• Check 7 sites manually</li>
+                    <li>• 90 min/day minimum</li>
+                    <li>• 30% response rate</li>
+                    <li>• Reply after 3-5 days</li>
+                    <li>• Rating: 7.8</li>
+                    <li>• Agoda visibility: Low</li>
+                </ul>
+            </div>
+            
+            <div class="after">
+                <h3>✅ AFTER 60 DAYS</h3>
+                <ul>
+                    <li>• One dashboard</li>
+                    <li>• 15 min/day only</li>
+                    <li>• 95% response rate</li>
+                    <li>• Reply in 2 hours</li>
+                    <li>• Rating: 8.2 (+0.4)</li>
+                    <li>• Agoda boost: +15%</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="cta">
+            <h2>Win Those 65% Back</h2>
+            <p style="font-size: 1.2rem; margin: 20px 0;">
+                Hotels responding to ALL reviews see:<br>
+                • 2.2x more bookings<br>
+                • +12% more reviews
+            </p>
+            <div style="font-size: 2rem; margin: 30px 0;">
+                = ฿320,000/year extra
+            </div>
+            <div class="price">฿5,000/month</div>
+            <p>For 80-150 room hotels</p>
+            <a href="#contact" class="free-trial">FREE 30 DAYS - First 10 hotels only!</a>
+        </div>
+    </div>
+    
+    <a href="#contact" class="contact-float">Contact Now →</a>
+    
+    <script>
+        // Add smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                alert('Add your contact info here: WhatsApp, Line, Phone, etc.');
+            });
+        });
+        
+        // Quick analytics
+        console.log('Landing page loaded at:', new Date().toISOString());
+    </script>
+</body>
+</html>
