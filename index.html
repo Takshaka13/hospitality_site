@@ -295,17 +295,21 @@
             <div class="price">฿5,000/month</div>
             <p>For 80-150 room hotels</p>
             <a href="#contact" class="free-trial">FREE 30 DAYS - First 10 hotels only!</a>
+            <p style="margin-top: 30px; font-size: 1.2rem;">
+                <strong>Contact via LINE:</strong> +66660870084
+            </p>
         </div>
     </div>
     
-    <a href="#contact" class="contact-float">Contact Now →</a>
+    <a href="#contact" class="contact-float">LINE: +66660870084 →</a>
     
     <script>
-        // Add smooth scrolling
+        // Add smooth scrolling and contact redirect
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
-                alert('Add your contact info here: WhatsApp, Line, Phone, etc.');
+                // Redirect to LINE
+                window.open('https://line.me/ti/p/~' + encodeURIComponent('+66660870084'), '_blank');
             });
         });
         
